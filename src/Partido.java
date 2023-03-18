@@ -10,7 +10,29 @@ public class Partido {
         this.golesEquipo1 = golesEquipo1;
         this.golesEquipo2 = golesEquipo2;
     }
-
-    public ResultadoEnum resultado(Equipo equipo){
+    public Equipo getEquipo1(){
+        return this.equipo1;
     }
+
+    public Equipo getEquipo2() {
+        return equipo2;
+    }
+
+    public ResultadoEnum resultado(Equipo equipo) {
+            if (this.golesEquipo1 == this.golesEquipo2) {
+                return ResultadoEnum.empate;
+            } else if (this.golesEquipo1 > this.golesEquipo2) {
+                if(equipo==this.equipo1){
+                    return ResultadoEnum.ganador;
+                }else{
+                    return ResultadoEnum.perdedor;
+                }
+            }else{
+                if(equipo == this.equipo1){
+                    return ResultadoEnum.perdedor;
+                }else{
+                    return ResultadoEnum.ganador;
+                }
+            }
+        }
 }
